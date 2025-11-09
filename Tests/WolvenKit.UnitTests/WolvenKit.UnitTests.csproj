@@ -5,7 +5,7 @@
       <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <IsPackable>false</IsPackable>
     <Platforms>x64</Platforms>
-    <TargetFrameworks>net8.0-windows7.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -114,9 +114,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\WolvenKit.App\WolvenKit.App.csproj" />
     <ProjectReference Include="..\..\WolvenKit.Core\WolvenKit.Core.csproj" />
       <ProjectReference Include="..\..\WolvenKit.Common\WolvenKit.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Exclude tests that depend on WolvenKit.App -->
+    <Compile Remove="App/**" />
+    <Compile Remove="GUI/**" />
+    <Compile Remove="UI/**" />
   </ItemGroup>
 
 </Project>
